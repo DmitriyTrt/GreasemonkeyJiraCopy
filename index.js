@@ -45,14 +45,13 @@ a.trt-copy-id-n-title.trt-successful:hover {
     .append(style);
   
   $(function() {
-  	var visible = false;
-
-    $('body').on('mouseenter.trtIssueCopyUi', '#jira-issue-header', function() {
-      if (visible) {
+  	$('body').on('mouseenter.trtIssueCopyUi', '#jira-issue-header', function() {
+      var $issueHeader = $('#jira-issue-header');
+      if ($issueHeader.hasClass('trt-copy-buttons-added')) {
         return;
       }
-
-      var $issueHeader = $('#jira-issue-header');
+      $issueHeader.addClass('trt-copy-buttons-added');
+      
       var $issueLink = $issueHeader.find('a[href^="/browse/"]').last();
 
       if (!$issueLink.length) {
@@ -90,7 +89,6 @@ a.trt-copy-id-n-title.trt-successful:hover {
       });
       
       $issueLink.after($links);
-      visible = true;
     });
   });
   
