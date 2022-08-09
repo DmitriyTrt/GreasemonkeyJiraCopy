@@ -80,7 +80,7 @@ a.trt-copy-id-n-title.trt-successful:hover {
         var issueId = getIssueId($issueLink);
 
         var issueTitle = $issueHeader.parent()
-          .find('h1')
+          .find('h1:first')
           .text();
         issueTitle = $.trim(issueTitle);
 
