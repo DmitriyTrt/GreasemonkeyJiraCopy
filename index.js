@@ -47,10 +47,11 @@ a.trt-copy-id-n-title.trt-successful:hover {
   $(function() {
   	$('body').on('mouseenter.trtIssueCopyUi', '#jira-issue-header', function() {
       var $issueHeader = $('#jira-issue-header');
-      if ($issueHeader.hasClass('trt-copy-buttons-added')) {
+      if ($issueHeader.attr('data-trt-copy-buttons-added')) {
         return;
       }
-      $issueHeader.addClass('trt-copy-buttons-added');
+      // Jira overwrites all the classes sometimes, so we can't just use classes.
+      $issueHeader.attr('data-trt-copy-buttons-added', 1);
       
       var $issueLink = $issueHeader.find('a[href^="/browse/"]').last();
 
